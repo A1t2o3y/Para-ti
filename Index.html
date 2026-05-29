@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti ❤️</title>
+    <!-- Importamos fuentes elegantes de Google Fonts para emular el estilo premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent-color: #ff4a6e;
+            --accent-hover: #e03556;
+            --bg-gradient-1: #ffeef2;
+            --bg-gradient-2: #fff6f8;
+            --text-dark: #2d2d2d;
+            --text-muted: #666666;
+            --shadow-soft: 0 12px 40px rgba(255, 74, 110, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2));
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fondo de destellos flotantes (Efecto característico) */
+        .sparkles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: rgba(255, 74, 110, 0.3);
+            border-radius: 50%;
+            animation: floatUp 8s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
+        }
+
+        /* Tarjeta de Dedicatoria estilo Dedicapag */
+        .dedica-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+            width: 100%;
+            max-width: 440px;
+            padding: 35px 25px;
+            text-align: center;
+            z-index: 10;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Avatar de Portada Redondeado */
+        .avatar-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(255, 74, 110, 0.2);
+        }
+
+        .heart-badge {
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+            background: var(--accent-color);
+            color: #ffffff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .sender-tag {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Botón Interactuable (Sobre de apertura) */
+        .action-button {
+            background: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 15px 35px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 74, 110, 0.3);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 74, 110, 0.4);
+        }
+
+        .action-button:active {
+            transform: translateY(0);
+        }
+
+        /* Bloque de la carta manuscrita oculto */
+        .letter-box {
+            display: none;
+            text-align: left;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 25px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02), 0 4px 15px rgba(0,0,0,0.02);
+            border-left: 4px solid var(--accent-color);
+            animation: slideDown 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .letter-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #444444;
+            white-space: pre-line; /* Mantiene los saltos de línea */
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        /* Reproductor de Música Minimalista */
+        .music-control {
+            margin-top: 30px;
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.75;
+            transition: opacity 0.2s;
+        }
+
+        .music-control:hover {
+            opacity: 1;
+        }
+
+        .footer-brand {
+            margin-top: 35px;
+            font-size: 0.75rem;
+            color: #b0b0b0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Capa de partículas sutiles de fondo -->
+    <div class="sparkles-container" id="sparkles"></div>
+
+    <!-- Contenedor Principal de la Dedicatoria -->
+    <div class="dedica-card">
+        
+        <!-- Foto de Perfil / Imagen superior -->
+        <div class="avatar-wrapper">
+            <!-- NOTA: Puedes cambiar esta URL por cualquier foto tuya o de pareja -->
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=300&auto=format&fit=crop" alt="Foto Dedicatoria" class="avatar-image">
+            <div class="heart-badge">❤️</div>
+        </div>
+
+        <!-- Encabezados -->
+        <h1>Te han dejado un mensaje</h1>
+        <div class="sender-tag">De: Alguien Especial</div>
+
+        <!-- Botón para interactuar -->
+        <div id="btnContainer">
+            <button class="action-button" onclick="openLetter()">
+                <span>✉️ Abrir Dedicatoria</span>
+            </button>
+        </div>
+
+        <!-- Caja de la Carta (Se revela dinámicamente) -->
+        <div class="letter-box" id="letterBox">
+            <div class="letter-text">
+                Hola,
+
+                Quería enviarte este pequeño detalle para recordarte lo mucho que significas para mí. A veces las palabras se quedan cortas, pero los detalles demuestran lo que el corazón siente. 
+
+                Gracias por estar presente, por cada risa compartida y por hacer que las cosas sean más bonitas cuando estás cerca. Espero que este mensaje te saque una gran sonrisa hoy.
+            </div>
+            <div class="signature">Con mucho cariño</div>
+        </div>
+
+        <!-- Control de audio integrado (Estilo transparente) -->
+        <button class="music-control" onclick="togglePlay()">
+            <span id="musicIcon">🎵</span> <span id="musicText">Escuchar melodía de fondo</span>
+        </button>
+
+        <!-- Audio por defecto (Puedes reemplazar el enlace .mp3 por la canción que desees) -->
+        <audio id="romanticTrack" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" loop></audio>
+
+        <!-- Footer limpio simulando plataforma -->
+        <div class="footer-brand">
+            Página de Dedicatoria Personalizada
+        </div>
+    </div>
+
+    <script>
+        // Generador dinámico de partículas flotantes de fondo
+        const container = document.getElementById('sparkles');
+        for (let i = 0; i < 15; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.width = sparkle.style.height = (Math.random() * 8 + 6) + 'px';
+            sparkle.style.animationDelay = Math.random() * 6 + 's';
+            sparkle.style.animationDuration = Math.random() * 5 + 6 + 's';
+            container.appendChild(sparkle);
+        }
+
+        // Función para abrir la carta con animación limpia
+        function openLetter() {
+            const letter = document.getElementById('letterBox');
+            const btnContainer = document.getElementById('btnContainer');
+            
+            letter.style.display = 'block';
+            btnContainer.style.display = 'none';
+
+            // Intenta reproducir la música automáticamente al abrir la carta (política del navegador)
+            attemptPlayMusic();
+        }
+
+        // Manejo de música de fondo (Play/Pausa)
+        const track = document.getElementById('romanticTrack');
+        const mIcon = document.getElementById('musicIcon');
+        const mText = document.getElementById('musicText');
+
+        function togglePlay() {
+            if (track.paused) {
+                track.play();
+                mIcon.innerText = "⏸️";
+                mText.innerText = "Pausar música";
+            } else {
+                track.pause();
+                mIcon.innerText = "🎵";
+                mText.innerText = "Escuchar melodía de fondo";
+            }
+        }
+
+        function attemptPlayMusic() {
+            track.play().then(() => {
+                mIcon.innerText = "⏸️";
+                mText.innerText = "Pausar música";
+            }).catch(error => {
+                console.log("El navegador bloqueó el autoplay, requiere interacción manual del usuario.");
+            });
+        }
+    </script>
+</body>
+</html>
