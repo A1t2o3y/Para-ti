@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Dedicatoria Especial 💖</title>
+    <style>
+        :root {
+            --primary-color: #ff5e7e;
+            --secondary-color: #ff9aa2;
+            --background-color: #fff5f6;
+            --text-color: #4a4a4a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Efecto de corazones flotando de fondo */
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .heart-particle {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 94, 126, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            clip-path: path('M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z');
+        }
+
+        @keyframes animate {
+            0%{
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100%{
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+
+        /* Contenedor Principal (Tarjeta de la Dedicatoria) */
+        .card-container {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 94, 126, 0.15);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+            z-index: 10;
+            border: 1px solid rgba(255, 154, 162, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Foto de Portada circular */
+        .header-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Sobre interactivo para revelar la carta */
+        .envelope-wrapper {
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .envelope {
+            background: var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 94, 126, 0.3);
+        }
+
+        .envelope:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        /* Mensaje Secreto que se revela */
+        .letter-content {
+            display: none;
+            text-align: left;
+            line-height: 1.6;
+            background: #fffafb;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            margin-top: 20px;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Botón de Música */
+        .btn-music {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 94, 126, 0.3);
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-music:hover {
+            background-color: #e04462;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-hearts">
+        <div class="heart-particle" style="left: 10%; width: 25px; height: 25px; animation-delay: 0s;"></div>
+        <div class="heart-particle" style="left: 25%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 12s;"></div>
+        <div class="heart-particle" style="left: 40%; width: 20px; height: 20px; animation-delay: 4s;"></div>
+        <div class="heart-particle" style="left: 70%; width: 30px; height: 30px; animation-delay: 0s; animation-duration: 18s;"></div>
+        <div class="heart-particle" style="left: 85%; width: 15px; height: 15px; animation-delay: 3s;"></div>
+    </div>
+
+    <div class="card-container">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop" alt="Foto de Portada" class="header-image">
+        
+        <h1>Una sorpresa para ti ❤️</h1>
+        <p class="subtitle">De: Tu persona favorita</p>
+
+        <div class="envelope-wrapper" id="envelopeWrapper" onclick="revealLetter()">
+            <div class="envelope">
+                ✉️ Toca aquí para abrir tu carta
+            </div>
+        </div>
+
+        <div class="letter-content" id="letterContent">
+            <p><strong>Hola Especial,</strong></p><br>
+            <p>Quería escribirte esto para recordarte lo mucho que significas para mí. A veces el día a día va muy rápido, pero hoy me detuve para recordarte lo importante que eres.</p><br>
+            <p>Gracias por cada sonrisa, por cada palabra de apoyo y por iluminar mis días. Eres una persona increíble y me hace muy feliz compartir momentos contigo.</p><br>
+            <p><em>Con todo mi cariño ✨</em></p>
+        </div>
+
+        <button class="btn-music" onclick="toggleMusic()">🎵 Escuchar nuestra canción</button>
+        
+        <audio id="bgMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+        <div class="footer">
+            Hecho con ❤️ para alguien especial
+        </div>
+    </div>
+
+    <script>
+        function revealLetter() {
+            var letter = document.getElementById("letterContent");
+            var envelope = document.getElementById("envelopeWrapper");
+            
+            // Muestra la carta
+            letter.style.display = "block";
+            // Cambia el aspecto del sobre una vez abierto
+            envelope.innerHTML = "<div class='envelope' style='background:#4a4a4a; opacity:0.6;'>✉️ Carta Abierta</div>";
+            envelope.style.pointerEvents = "none";
+        }
+
+        function toggleMusic() {
+            var audio = document.getElementById("bgMusic");
+            var btn = document.querySelector(".btn-music");
+            if (audio.paused) {
+                audio.play();
+                btn.innerText = "⏸️ Pausar música";
+            } else {
+                audio.pause();
+                btn.innerText = "🎵 Escuchar nuestra canción";
+            }
+        }
+    </script>
+</body>
+</html>
